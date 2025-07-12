@@ -1,0 +1,4 @@
+framework = "jest"
+test_type = "unit"
+exclude_dirs = ["node_modules", "dist"]
+file_glob = "*.tsx"

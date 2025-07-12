@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "autoqa"
+version = "1.0.0"
+description = "AI-powered automated test generation, validation, and repair."
+authors = [
+    { name="Shelton Wilson", email="sheltonwlsn@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.8"
+
+dependencies = [
+    "click>=8.2.1",
+    "python-dotenv",
+    "httpx",
+    "langchain>=0.3.26",
+    "langchain-anthropic>=0.3.17",
+    "langchain-openai>=0.3.26",
+    "langchain-google-vertexai>=2.0.27",
+    "langgraph>=0.5.1",
+    "pydantic>=2.11.7",
+    "rich",
+    "toml"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"*" = ["py.typed"]
+
+[tool.black]
+line-length = 100
+
+[tool.isort]
+profile = "black"
+
+[tool.flake8]
+max-line-length = 120
+extend-ignore = ["E203", "W503", "E501"]
+
+
+[project.scripts]
+auto = "cli.main:cli"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black"
+]
+
+

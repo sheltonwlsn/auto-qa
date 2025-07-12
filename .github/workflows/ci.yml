@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Poetry (or pip)
+        run: pip install --upgrade pip
+
+      - name: Install dependencies
+        run: |
+          pip install -e ".[dev]"
+
+      - name: Lint with black
+        run: black --check src
+
+      - name: Lint with flake8
+        run: flake8 src
+
+      - name: Sort imports with isort
+        run: isort --check src
+
+      - name: Run tests
+        run: pytest

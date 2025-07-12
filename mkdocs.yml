@@ -1,0 +1,7 @@
+site_name: AutoQA
+nav:
+  - Home: index.md
+  - CLI: cli.md
+  - Contributing: contributing.md
+  - Roadmap: roadmap.md
+  - About: about.md
