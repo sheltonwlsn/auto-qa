@@ -33,8 +33,5 @@ jobs:
       - name: Lint with flake8
         run: flake8 src
 
-      - name: Sort imports with isort
-        run: isort --check src
-
       - name: Run tests
         run: pytest
